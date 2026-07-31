@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shin Chan Season 15 - Hindi HD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --accent-color: #ff3b30;
+            --accent-hover: #ff1f12;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --radius-main: 12px;
+            --radius-sm: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Glassmorphism utility */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-main);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(5,5,5,0.4) 0%, rgba(5,5,5,0.9) 70%, var(--bg-color) 100%), 
+                        url('https://ik.imagekit.io/garrywebworld/Shinchan%20wallpaper.jpg?updatedAt=1785485205933');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 2rem;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .badge {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 90%;
+        }
+
+        .btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-sm);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: fit-content;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 59, 48, 0.4);
+        }
+
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .meta-card {
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .poster-card {
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .poster-card img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-sm);
+            object-fit: cover;
+        }
+
+        /* Player Section */
+        .player-section {
+            max-width: 1200px;
+            margin: -4rem auto 4rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .player-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: var(--radius-main);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border: 1px solid var(--glass-border);
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-main);
+        }
+
+        .loading-spinner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+            display: none;
+            border-radius: var(--radius-main);
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--glass-border);
+            border-top-color: var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .player-controls-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .player-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .episode-counter {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .control-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .ctrl-btn {
+            background: var(--glass-bg);
+            color: white;
+            border: 1px solid var(--glass-border);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .ctrl-btn:hover:not(:disabled) {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .ctrl-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Episodes Section */
+        .episodes-section {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .episodes-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            color: white;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 1rem;
+        }
+
+        .ep-btn {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: white;
+            padding: 1rem 0;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .ep-btn:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .ep-btn.active {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(255, 59, 48, 0.4);
+        }
+
+        /* Keyboard Shortcuts Legend */
+        .shortcuts-legend {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        /* Animations */
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .player-section {
+                margin-top: -2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .player-controls-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+            .control-btns {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .ctrl-btn {
+                flex: 1;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-left">
+                <span class="badge">Hindi HD</span>
+                <h1 class="hero-title">Shin Chan<br>Season 15</h1>
+                <p class="hero-desc">Follow the hilarious everyday adventures of 5-year-old Shinnosuke "Shin" Nohara, his family, and his friends in stunning High Definition.</p>
+                <a href="#player-anchor" class="btn" onclick="playCurrent()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Watch Now
+                </a>
+            </div>
+            <div class="hero-right">
+                <div class="meta-card glass">
+                    <div class="meta-item">
+                        <span class="meta-label">Language</span>
+                        <span class="meta-value">Hindi</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Season</span>
+                        <span class="meta-value">15</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Quality</span>
+                        <span class="meta-value">HD 720p</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Episodes</span>
+                        <span class="meta-value">43</span>
+                    </div>
+                </div>
+                <div class="poster-card glass">
+                    <img src="https://ik.imagekit.io/garrywebworld/72198400273179621.jpg?updatedAt=1785485205580" alt="Shin Chan Poster">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Player Section -->
+    <div id="player-anchor" class="player-section">
+        <div class="player-wrapper">
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+            </div>
+            <video id="videoPlayer" controls preload="metadata">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="player-controls-bottom glass">
+            <div>
+                <h2 class="player-title" id="playerTitle">Select an Episode</h2>
+                <div class="episode-counter" id="episodeCounter">Episode 0 / 43</div>
+            </div>
+            <div class="control-btns">
+                <button class="ctrl-btn" id="btnPrev" onclick="playPrev()" disabled>← Previous</button>
+                <button class="ctrl-btn" id="btnNext" onclick="playNext()" disabled>Next →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Episodes Grid Section -->
+    <section class="episodes-section">
+        <div class="episodes-header">
+            <h2>All Episodes</h2>
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search episode number..." onkeyup="filterEpisodes()">
+            </div>
+        </div>
+        
+        <div class="episodes-grid" id="episodesGrid">
+            <!-- Buttons injected via JS -->
+        </div>
+    </section>
+
+    <div class="shortcuts-legend">
+        Keyboard Shortcuts: <strong>Space</strong> (Play/Pause) • <strong>←</strong> (Previous Ep) • <strong>→</strong> (Next Ep)
+    </div>
+
+    <script>
+        // Data Generation Logic
+        const eps = [
+            { ep: "02", url: "https://ia600600.us.archive.org/8/items/shin-chan-s-15-hindi-ep-01-1/ShinChanS15HindiEP02~1.mp4" },
+            { ep: "04", url: "https://ia600600.us.archive.org/8/items/shin-chan-s-15-hindi-ep-01-1/ShinChanS15HindiEP04.mp4" },
+            { ep: "05", url: "https://ia600600.us.archive.org/8/items/shin-chan-s-15-hindi-ep-01-1/ShinChanS15HindiEP05~1%20-%20Copy.mp4" }
+        ];
+
+        for (let i = 8; i <= 52; i++) {
+            if ([10, 19, 20].includes(i)) continue;
+            eps.push({
+                ep: String(i).padStart(2, "0"),
+                url: `https://ia600600.us.archive.org/8/items/shin-chan-s-15-hindi-ep-01-1/ShinChanS15HindiEP${String(i).padStart(2, "0")}${i === 46 ? ".mp4" : "~1.mp4"}`
+            });
+        }
+
+        // Global Variables
+        let currentIndex = 0;
+        const totalEpisodes = eps.length;
+        
+        // DOM Elements
+        const gridContainer = document.getElementById('episodesGrid');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const playerTitle = document.getElementById('playerTitle');
+        const episodeCounter = document.getElementById('episodeCounter');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const searchInput = document.getElementById('searchInput');
+
+        // Initialize UI
+        function init() {
+            renderGrid(eps);
+            
+            // Check continue watching
+            const savedIndex = localStorage.getItem('shinchan_s15_current_ep');
+            if (savedIndex !== null && savedIndex >= 0 && savedIndex < totalEpisodes) {
+                currentIndex = parseInt(savedIndex);
+                loadEpisode(currentIndex, false);
+            } else {
+                loadEpisode(0, false);
+            }
+        }
+
+        // Render Episodes Grid
+        function renderGrid(episodesData) {
+            gridContainer.innerHTML = '';
+            episodesData.forEach(item => {
+                const globalIndex = eps.findIndex(e => e.ep === item.ep);
+                const btn = document.createElement('button');
+                btn.className = 'ep-btn';
+                btn.textContent = `EP ${item.ep}`;
+                btn.id = `btn-ep-${globalIndex}`;
+                btn.onclick = () => loadEpisode(globalIndex, true);
+                gridContainer.appendChild(btn);
+            });
+            updateActiveButton();
+        }
+
+        // Load and Play Episode
+        function loadEpisode(index, autoplay = true) {
+            if (index < 0 || index >= totalEpisodes) return;
+            
+            currentIndex = index;
+            const episode = eps[currentIndex];
+            
+            // UI Updates
+            playerTitle.textContent = `Episode ${episode.ep}`;
+            episodeCounter.textContent = `Episode ${currentIndex + 1} / ${totalEpisodes}`;
+            
+            // Save state
+            localStorage.setItem('shinchan_s15_current_ep', currentIndex);
+            
+            // Update buttons
+            updateActiveButton();
+            updateControls();
+
+            // Handle Video Load
+            loadingSpinner.style.display = 'flex';
+            videoPlayer.src = episode.url;
+            
+            if (autoplay) {
+                videoPlayer.play().catch(e => console.log("Autoplay blocked:", e));
+                document.getElementById('player-anchor').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Play current (from Hero button)
+        function playCurrent() {
+            videoPlayer.play().catch(e => console.log(e));
+        }
+
+        // Update Active state on Grid
+        function updateActiveButton() {
+            document.querySelectorAll('.ep-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById(`btn-ep-${currentIndex}`);
+            if (activeBtn) activeBtn.classList.add('active');
+        }
+
+        // Update Prev/Next Buttons
+        function updateControls() {
+            btnPrev.disabled = currentIndex === 0;
+            btnNext.disabled = currentIndex === totalEpisodes - 1;
+        }
+
+        // Navigation Functions
+        function playPrev() {
+            if (currentIndex > 0) loadEpisode(currentIndex - 1, true);
+        }
+
+        function playNext() {
+            if (currentIndex < totalEpisodes - 1) loadEpisode(currentIndex + 1, true);
+        }
+
+        // Search/Filter functionality
+        function filterEpisodes() {
+            const query = searchInput.value.trim().toLowerCase();
+            if (!query) {
+                renderGrid(eps);
+                return;
+            }
+            const filtered = eps.filter(ep => ep.ep.includes(query));
+            renderGrid(filtered);
+        }
+
+        // Video Events
+        videoPlayer.addEventListener('canplay', () => {
+            loadingSpinner.style.display = 'none';
+        });
+
+        videoPlayer.addEventListener('waiting', () => {
+            loadingSpinner.style.display = 'flex';
+        });
+
+        videoPlayer.addEventListener('playing', () => {
+            loadingSpinner.style.display = 'none';
+        });
+
+        videoPlayer.addEventListener('ended', () => {
+            if (currentIndex < totalEpisodes - 1) {
+                playNext();
+            }
+        });
+
+        // Keyboard Shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ignore if typing in search box
+            if (document.activeElement === searchInput) return;
+
+            switch(e.code) {
+                case 'Space':
+                    e.preventDefault();
+                    if (videoPlayer.paused) videoPlayer.play();
+                    else videoPlayer.pause();
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    playPrev();
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    playNext();
+                    break;
+            }
+        });
+
+        // Start Application
+        window.addEventListener('DOMContentLoaded', init);
+
+    </script>
+</body>
+</html>
