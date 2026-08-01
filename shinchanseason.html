@@ -468,7 +468,7 @@
                     </div>
                     <div class="info-item">
                         <span class="info-label">Episodes</span>
-                        <span class="info-value">9 Available</span>
+                        <span class="info-value">15 Available</span>
                     </div>
                 </div>
                 <div class="glass" style="padding: 0;">
@@ -515,7 +515,7 @@
         <!-- Notice Banner for untrimmed episodes -->
         <div class="notice-banner">
             <svg class="notice-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            <div><strong>Important Note:</strong> These episodes are entirely untrimmed. You will find the special Buri Buri Zaemon parts hidden inside the full episode runtimes!</div>
+            <div><strong>Important Note:</strong> Some of these episodes are entirely untrimmed. You will find the special Buri Buri Zaemon parts hidden inside the full episode runtimes!</div>
         </div>
 
         <div class="grid" id="episodeGrid">
@@ -528,8 +528,17 @@
     </section>
 
     <script>
-        // Formatted with Streamtape /e/ embed links
+        // Contains both the older Archive.org links and the new Streamtape /e/ embed links
         const episodes = [
+            // Original Season 8 Episodes
+            { ep: "S8 E29", url: "https://archive.org/embed/ctdtdtudyyuci6269/Shinchan+S08/Shinchan+S08E29+%5BBBZ%5D.mkv" },
+            { ep: "S8 E30", url: "https://archive.org/embed/ctdtdtudyyuci6269/Shinchan+S08/Shinchan+S08E30+%5BBBZ%5D.mkv?start=63" },
+            { ep: "S8 E31", url: "https://archive.org/embed/ctdtdtudyyuci6269/Shinchan+S08/Shinchan+S08E31+%5BBBZ%5D.mkv?start=60" },
+            { ep: "S8 E32", url: "https://archive.org/embed/ctdtdtudyyuci6269/Shinchan+S08/Shinchan+S08E32+%5BBBZ.mkv?start=61" },
+            { ep: "S8 E33", url: "https://archive.org/embed/ctdtdtudyyuci6269/Shinchan+S08/Shinchan+S08E33+%5BBBZ%5D.mkv?start=60" },
+            { ep: "S8 E34", url: "https://archive.org/embed/ctdtdtudyyuci6269/Shinchan+S08/Shinchan+S08E34+%5BBBZ%5D.mkv?start=61" },
+            
+            // New Season 16 Episodes
             { ep: "S16 E06", url: "https://streamtape.com/e/rlz19eDkxlIbVvX/" },
             { ep: "S16 E07", url: "https://streamtape.com/e/rkykWjVdXZUbwQV/" },
             { ep: "S16 E12", url: "https://streamtape.com/e/4wBYBDeKBmIK0Ok/" },
