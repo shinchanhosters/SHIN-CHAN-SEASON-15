@@ -86,7 +86,6 @@
             display: flex;
             align-items: center;
             padding: 4rem 5%;
-            /* Updated with the new background image */
             background: linear-gradient(135deg, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.7) 50%, rgba(5,5,5,0.9) 100%),
                         url('https://ik.imagekit.io/cxdxr2dtrew/shinchan%20wallpaper%20hd.jpg') center/cover no-repeat;
         }
@@ -213,10 +212,12 @@
             z-index: 10;
         }
 
+        /* TV BROWSER FIX APPLIED HERE */
         .player-wrapper {
             position: relative;
             width: 100%;
-            aspect-ratio: 16/9;
+            padding-bottom: 56.25%; /* Forces 16:9 ratio on old TV browsers */
+            height: 0;
             background: #000;
             border-radius: var(--radius-lg);
             overflow: hidden;
@@ -691,8 +692,8 @@
             });
         }
 
-        // Boot
-        window.addEventListener('DOMContentLoaded', init);
+        // TV BROWSER FIX: Changed from DOMContentLoaded to window.onload for older TVs
+        window.onload = init;
     </script>
 </body>
 </html>
