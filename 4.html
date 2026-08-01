@@ -212,10 +212,12 @@
             z-index: 10;
         }
 
+        /* TV BROWSER FIX APPLIED HERE */
         .player-wrapper {
             position: relative;
             width: 100%;
-            aspect-ratio: 16/9;
+            padding-bottom: 56.25%; /* Forces 16:9 ratio on old TV browsers */
+            height: 0;
             background: #000;
             border-radius: var(--radius-lg);
             overflow: hidden;
@@ -687,8 +689,8 @@
             });
         }
 
-        // Boot
-        window.addEventListener('DOMContentLoaded', init);
+        // TV BROWSER FIX: Changed from DOMContentLoaded to window.onload for older TVs
+        window.onload = init;
     </script>
 </body>
 </html>
