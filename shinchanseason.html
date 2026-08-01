@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shin Chan buri buri zaemon all episodes</title>
+    <title>Shin Chan Buri Buri Special - Premium Streaming</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Standard Favicon -->
-<link rel="icon" type="image/png" href="https://ik.imagekit.io/cxdxr2dtrew/Shin%20Chan%20GitHub%20Octocat%20Favicon.png">
-
-<!-- Apple Touch Icon (For iOS Home Screen) -->
-<link rel="apple-touch-icon" href="https://ik.imagekit.io/cxdxr2dtrew/Shin%20Chan%20GitHub%20Octocat%20Favicon.png">
+    <link rel="icon" type="image/png" href="https://ik.imagekit.io/cxdxr2dtrew/Shin%20Chan%20GitHub%20Octocat%20Favicon.png">
+    <!-- Apple Touch Icon (For iOS Home Screen) -->
+    <link rel="apple-touch-icon" href="https://ik.imagekit.io/cxdxr2dtrew/Shin%20Chan%20GitHub%20Octocat%20Favicon.png">
+    
     <style>
         :root {
             --bg-base: #050505;
-            --accent-primary: #ff3b30;
-            --accent-hover: #e02a20;
+            --accent-primary: #ff9800; /* Buri Buri Zaemon Orange/Gold */
+            --accent-hover: #e68a00;
             --text-primary: #ffffff;
             --text-secondary: #aaaaaa;
             --glass-bg: rgba(255, 255, 255, 0.05);
@@ -55,11 +56,11 @@
             align-items: center;
             justify-content: center;
             background: var(--accent-primary);
-            color: white;
+            color: #000;
             border: none;
             padding: 12px 28px;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: var(--radius-sm);
             cursor: pointer;
             transition: all var(--transition-speed) ease;
@@ -70,7 +71,7 @@
         .btn:hover {
             background: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 59, 48, 0.4);
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
         }
 
         .btn:disabled {
@@ -87,7 +88,7 @@
             display: flex;
             align-items: center;
             padding: 4rem 5%;
-            background: linear-gradient(135deg, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.7) 50%, rgba(5,5,5,0.9) 100%),
+            background: linear-gradient(135deg, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.7) 50%, rgba(5,5,5,0.95) 100%),
                         url('https://ik.imagekit.io/garrywebworld/Shinchan%20wallpaper.jpg?updatedAt=1785485205933') center/cover no-repeat;
         }
 
@@ -121,10 +122,11 @@
         .badge {
             display: inline-block;
             background: var(--accent-primary);
+            color: #000;
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 1px;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
@@ -185,6 +187,25 @@
             padding: 0.5rem;
         }
 
+        /* Notice Banner */
+        .notice-banner {
+            background: rgba(255, 152, 0, 0.15);
+            border: 1px solid var(--accent-primary);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .notice-icon {
+            color: var(--accent-primary);
+            flex-shrink: 0;
+        }
+
         /* Player Section */
         .player-container {
             max-width: 1200px;
@@ -242,11 +263,13 @@
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             color: white;
+            font-weight: 500;
         }
 
         .nav-btn:hover:not(:disabled) {
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.3);
+            color: white;
         }
 
         /* Episode Grid */
@@ -317,7 +340,12 @@
         .ep-card.active {
             background: var(--accent-primary);
             border-color: var(--accent-primary);
-            box-shadow: 0 4px 15px rgba(255, 59, 48, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+            color: #000;
+        }
+        
+        .ep-card.active .ep-label {
+            color: #222;
         }
 
         .ep-number {
@@ -331,10 +359,6 @@
             font-size: 0.85rem;
             color: var(--text-secondary);
             text-transform: uppercase;
-        }
-
-        .ep-card.active .ep-label {
-            color: rgba(255, 255, 255, 0.9);
         }
 
         /* Keyboard Hints */
@@ -419,9 +443,9 @@
     <header class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <div class="badge">Hindi HD</div>
-                <h1 class="hero-title">Shin Chan<br>Season 8</h1>
-                <p class="hero-desc">Watch all available episodes in high quality. Join Shinnosuke and the Kasukabe defense group on their hilariously weird daily adventures.</p>
+                <div class="badge">Hindi Dubbed</div>
+                <h1 class="hero-title">Shin Chan<br>Buri Buri Special</h1>
+                <p class="hero-desc">Enjoy these brand-new Buri Buri Zaemon specials! Please note: these are full, untrimmed episodes, so the Buri Buri segments are included alongside the regular stories.</p>
                 <button class="btn" onclick="scrollToPlayer()">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                     Watch Now
@@ -435,16 +459,16 @@
                         <span class="info-value">Hindi</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Season</span>
-                        <span class="info-value">8</span>
+                        <span class="info-label">Collection</span>
+                        <span class="info-value">Specials</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Quality</span>
-                        <span class="info-value">HD</span>
+                        <span class="info-label">Format</span>
+                        <span class="info-value">Untrimmed</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Episodes</span>
-                        <span class="info-value">29 - 34</span>
+                        <span class="info-value">9 Available</span>
                     </div>
                 </div>
                 <div class="glass" style="padding: 0;">
@@ -487,6 +511,13 @@
     <!-- Playlist Section -->
     <section class="episodes-section">
         <h3 class="section-title">Select Episode</h3>
+        
+        <!-- Notice Banner for untrimmed episodes -->
+        <div class="notice-banner">
+            <svg class="notice-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <div><strong>Important Note:</strong> These episodes are entirely untrimmed. You will find the special Buri Buri Zaemon parts hidden inside the full episode runtimes!</div>
+        </div>
+
         <div class="grid" id="episodeGrid">
             <!-- Buttons injected by JS -->
         </div>
@@ -497,18 +528,22 @@
     </section>
 
     <script>
+        // Formatted with Streamtape /e/ embed links
         const episodes = [
-            { ep: "29", url: "https://archive.org/embed/ctdtdtudyyuci6269/Shinchan+S08/Shinchan+S08E29+%5BBBZ%5D.mkv" },
-            { ep: "30", url: "https://archive.org/embed/ctdtdtudyyuci6269/Shinchan+S08/Shinchan+S08E30+%5BBBZ%5D.mkv?start=63" },
-            { ep: "31", url: "https://archive.org/embed/ctdtdtudyyuci6269/Shinchan+S08/Shinchan+S08E31+%5BBBZ%5D.mkv?start=60" },
-            { ep: "32", url: "https://archive.org/embed/ctdtdtudyyuci6269/Shinchan+S08/Shinchan+S08E32+%5BBBZ.mkv?start=61" },
-            { ep: "33", url: "https://archive.org/embed/ctdtdtudyyuci6269/Shinchan+S08/Shinchan+S08E33+%5BBBZ%5D.mkv?start=60" },
-            { ep: "34", url: "https://archive.org/embed/ctdtdtudyyuci6269/Shinchan+S08/Shinchan+S08E34+%5BBBZ%5D.mkv?start=61" }
+            { ep: "S16 E06", url: "https://streamtape.com/e/rlz19eDkxlIbVvX/" },
+            { ep: "S16 E07", url: "https://streamtape.com/e/rkykWjVdXZUbwQV/" },
+            { ep: "S16 E12", url: "https://streamtape.com/e/4wBYBDeKBmIK0Ok/" },
+            { ep: "S16 E19", url: "https://streamtape.com/e/Q0ygDlJX7Bh00p0/" },
+            { ep: "S16 E25", url: "https://streamtape.com/e/KLWvGqepXmT0GOV/" },
+            { ep: "S16 E30", url: "https://streamtape.com/e/WZRR2Q0XgjHe9B/" },
+            { ep: "S16 E38", url: "https://streamtape.com/e/0213wAXbyWTbOzj/" },
+            { ep: "S16 E44", url: "https://streamtape.com/e/3adkWz794Gtd1aQ/" },
+            { ep: "S16 E47", url: "https://streamtape.com/e/jjrXQmrv1gIzRXa/" }
         ];
 
         let currentIndex = 0;
         const totalEps = episodes.length;
-        const STORAGE_KEY = 'shinchan_s8_progress';
+        const STORAGE_KEY = 'shinchan_buriburi_progress';
 
         // DOM Elements
         const player = document.getElementById('videoPlayer');
@@ -550,7 +585,7 @@
             player.src = ep.url;
             
             // Update Text
-            titleEl.textContent = `Episode ${ep.ep}`;
+            titleEl.textContent = `${ep.ep}`;
             counterEl.textContent = `Playing ${currentIndex + 1} of ${totalEps}`;
             
             // Update UI State
