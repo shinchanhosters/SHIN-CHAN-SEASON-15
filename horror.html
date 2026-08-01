@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shin Chan Horror Specials - Premium Streaming</title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://ik.imagekit.io/cxdxr2dtrew/Shin%20Chan%20GitHub%20Octocat%20Favicon.png">
+    <link rel="apple-touch-icon" href="https://ik.imagekit.io/cxdxr2dtrew/Shin%20Chan%20GitHub%20Octocat%20Favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Horror Theme Colors */
+            --bg-base: #0a0000;
+            --accent-primary: #8a0303; /* Blood Red */
+            --accent-hover: #b30000;
+            --text-primary: #e6e6e6;
+            --text-secondary: #888888;
+            --glass-bg: rgba(20, 0, 0, 0.6);
+            --glass-border: rgba(138, 3, 3, 0.2);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Utility Classes */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            text-decoration: none;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(138, 3, 3, 0.2);
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(138, 3, 3, 0.6);
+        }
+
+        .btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 5%;
+            /* Horror background with dark gradient overlay */
+            background: linear-gradient(135deg, rgba(10,0,0,0.95) 0%, rgba(20,0,0,0.8) 50%, rgba(10,0,0,0.95) 100%),
+                        url('https://ik.imagekit.io/cxdxr2dtrew/H%C3%ACnh%20n%E1%BB%81n%20%C4%91i%E1%BB%87n%20tho%E1%BA%A1i%20_%20Shin%20c%E1%BA%ADu%20b%C3%A9%20b%C3%BAt%20ch%C3%AC.jpg') center/cover no-repeat;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--bg-base), transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInRight 0.8s ease forwards;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent-primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(138, 3, 3, 0.5);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            text-shadow: 0 4px 20px rgba(179, 0, 0, 0.8);
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: #c9c9c9;
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+
+        .hero-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: fadeInLeft 0.8s ease forwards;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            padding: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffcccc;
+        }
+
+        .hero-poster {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            padding: 0.5rem;
+            filter: contrast(1.1) brightness(0.9);
+        }
+
+        /* Notice Banner */
+        .notice-banner {
+            background: rgba(138, 3, 3, 0.15);
+            border: 1px solid var(--accent-primary);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffcccc;
+            font-weight: 500;
+            box-shadow: inset 0 0 20px rgba(138, 3, 3, 0.1);
+        }
+
+        .notice-icon {
+            color: var(--accent-primary);
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 5px rgba(138,3,3,0.5));
+        }
+
+        /* Player Section */
+        .player-container {
+            max-width: 1200px;
+            margin: -3rem auto 4rem;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .player-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(138, 3, 3, 0.2);
+            border: 1px solid var(--glass-border);
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .episode-meta h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(138, 3, 3, 0.4);
+        }
+
+        .episode-meta p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            background: rgba(138, 3, 3, 0.1);
+            border: 1px solid var(--glass-border);
+            color: #ffcccc;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: rgba(138, 3, 3, 0.3);
+            border-color: var(--accent-primary);
+            color: white;
+            box-shadow: 0 0 15px rgba(138, 3, 3, 0.4);
+        }
+
+        /* Episode Grid */
+        .episodes-section {
+            max-width: 1200px;
+            margin: 0 auto 6rem;
+            padding: 0 5%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(138, 3, 3, 0.3);
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 30px;
+            background: var(--accent-primary);
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 1rem;
+        }
+
+        .ep-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 1.2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ep-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(138, 3, 3, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: 0.5s;
+        }
+
+        .ep-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .ep-card:hover {
+            transform: translateY(-5px);
+            background: rgba(138, 3, 3, 0.1);
+            border-color: rgba(138, 3, 3, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .ep-card.active {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            box-shadow: 0 4px 20px rgba(138, 3, 3, 0.6);
+        }
+
+        .ep-number {
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px;
+            color: #ffffff;
+        }
+
+        .ep-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .ep-card.active .ep-label {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Keyboard Hints */
+        .keyboard-hints {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .key {
+            background: rgba(138,3,3,0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 0 4px;
+            color: #ffcccc;
+            border: 1px solid rgba(138,3,3,0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-title {
+                font-size: 3rem;
+            }
+            .hero-desc {
+                margin: 0 auto 2.5rem;
+            }
+            .hero-info {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .player-controls {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding-top: 6rem;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .nav-btn {
+                flex: 1;
+            }
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="badge">Spooky Specials</div>
+                <h1 class="hero-title">Shin Chan<br>Horror Episodes</h1>
+                <p class="hero-desc">Enter if you dare! A chilling collection of Shin Chan's spookiest, most mysterious, and supernatural adventures. Perfect for a late-night scare.</p>
+                <button class="btn" onclick="scrollToPlayer()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Watch Now
+                </button>
+            </div>
+            
+            <div class="hero-info">
+                <div class="glass info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Theme</span>
+                        <span class="info-value">Horror / Ghost</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Language</span>
+                        <span class="info-value">Hindi</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Quality</span>
+                        <span class="info-value">HQ</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Collection</span>
+                        <span class="info-value">13 Episodes</span>
+                    </div>
+                </div>
+                <div class="glass" style="padding: 0;">
+                    <img src="https://ik.imagekit.io/cxdxr2dtrew/152348399889697841.jpg" alt="Shin Chan Horror Poster" class="hero-poster">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Player Section -->
+    <section id="watch" class="player-container">
+        <div class="player-wrapper">
+            <iframe 
+                id="videoPlayer" 
+                allowfullscreen 
+                allowtransparency 
+                allow="autoplay" 
+                scrolling="no" 
+                frameborder="0">
+            </iframe>
+        </div>
+        
+        <div class="glass player-controls">
+            <div class="episode-meta">
+                <h2 id="currentEpTitle">Loading...</h2>
+                <p id="epCounter">Episode 0 of 0</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn nav-btn" id="btnPrev" onclick="playPrevious()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Previous
+                </button>
+                <button class="btn nav-btn" id="btnNext" onclick="playNext()">
+                    Next
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Playlist Section -->
+    <section class="episodes-section">
+        <div class="section-title">Select Episode</div>
+        
+        <div class="notice-banner">
+            <!-- Spooky ghost/alert icon -->
+            <svg class="notice-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <div><strong>Beware:</strong> We recommend watching these mysterious special episodes with the lights off... if you're brave enough.</div>
+        </div>
+
+        <div class="grid" id="episodeGrid">
+            <!-- Buttons injected by JS -->
+        </div>
+        
+        <div class="keyboard-hints">
+            Keyboard Shortcuts: <span class="key">←</span> Previous Episode &nbsp;|&nbsp; <span class="key">→</span> Next Episode
+        </div>
+    </section>
+
+    <script>
+        // Links updated to /e/ embed format
+        const episodes = [
+            { ep: "01", url: "https://streamtape.com/e/DGmD8WADJMFkJL7/" },
+            { ep: "02", url: "https://streamtape.com/e/z118gelRDjUYYzr/" },
+            { ep: "03", url: "https://streamtape.com/e/WQlxlm2W9GCAw7/" },
+            { ep: "04", url: "https://streamtape.com/e/7XrX3Dexa2SAAKG/" },
+            { ep: "05", url: "https://streamtape.com/e/1D0JePZGb6HJpQ/" },
+            { ep: "06", url: "https://streamtape.com/e/jbzx4zgRD4tzzxg/" },
+            { ep: "07", url: "https://streamtape.com/e/Qej6GYd7O1u0Q46/" },
+            { ep: "08", url: "https://streamtape.com/e/GKgZX8ZpWgs1eXL/" },
+            { ep: "09", url: "https://streamtape.com/e/VYwVqQ1r3luKeqW/" },
+            { ep: "10", url: "https://streamtape.com/e/LMYgMLMZvrs6q4/" },
+            { ep: "11", url: "https://streamtape.com/e/2Vm9XlpGvXTZ2mD/" },
+            { ep: "12", url: "https://streamtape.com/e/1PjvDaGryqIeOm6/" },
+            { ep: "13", url: "https://streamtape.com/e/BOrwqzDoeMsyell/" }
+        ];
+
+        let currentIndex = 0;
+        const totalEps = episodes.length;
+        const STORAGE_KEY = 'shinchan_horror_progress';
+
+        // DOM Elements
+        const player = document.getElementById('videoPlayer');
+        const titleEl = document.getElementById('currentEpTitle');
+        const counterEl = document.getElementById('epCounter');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+        const grid = document.getElementById('episodeGrid');
+
+        function init() {
+            renderGrid();
+            loadProgress();
+            updatePlayer(false);
+            setupKeyboard();
+        }
+
+        function renderGrid() {
+            grid.innerHTML = '';
+            episodes.forEach((episode, index) => {
+                const card = document.createElement('div');
+                card.className = 'ep-card';
+                card.id = `ep-card-${index}`;
+                card.innerHTML = `
+                    <span class="ep-number">${episode.ep}</span>
+                    <span class="ep-label">Episode</span>
+                `;
+                card.onclick = () => {
+                    currentIndex = index;
+                    updatePlayer(true);
+                };
+                grid.appendChild(card);
+            });
+        }
+
+        function updatePlayer(doScroll) {
+            const ep = episodes[currentIndex];
+            
+            // Update Iframe
+            player.src = ep.url;
+            
+            // Update Text
+            titleEl.textContent = `Tale ${ep.ep}`;
+            counterEl.textContent = `Playing ${currentIndex + 1} of ${totalEps}`;
+            
+            // Update UI State
+            updateActiveCard();
+            updateButtons();
+            saveProgress();
+
+            if (doScroll) {
+                scrollToPlayer();
+            }
+        }
+
+        function updateActiveCard() {
+            document.querySelectorAll('.ep-card').forEach(card => card.classList.remove('active'));
+            const activeCard = document.getElementById(`ep-card-${currentIndex}`);
+            if (activeCard) {
+                activeCard.classList.add('active');
+            }
+        }
+
+        function updateButtons() {
+            btnPrev.disabled = currentIndex === 0;
+            btnNext.disabled = currentIndex === totalEps - 1;
+        }
+
+        function playPrevious() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updatePlayer(true);
+            }
+        }
+
+        function playNext() {
+            if (currentIndex < totalEps - 1) {
+                currentIndex++;
+                updatePlayer(true);
+            }
+        }
+
+        function scrollToPlayer() {
+            document.getElementById('watch').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function saveProgress() {
+            localStorage.setItem(STORAGE_KEY, currentIndex.toString());
+        }
+
+        function loadProgress() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved !== null) {
+                const parsed = parseInt(saved, 10);
+                if (parsed >= 0 && parsed < totalEps) {
+                    currentIndex = parsed;
+                }
+            }
+        }
+
+        function setupKeyboard() {
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    playPrevious();
+                } else if (e.key === 'ArrowRight') {
+                    playNext();
+                }
+            });
+        }
+
+        // Boot
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
