@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shin Chan Movie: The Hotspring Battle - Premium Streaming</title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://ik.imagekit.io/cxdxr2dtrew/Shin%20Chan%20GitHub%20Octocat%20Favicon.png">
+    <link rel="apple-touch-icon" href="https://ik.imagekit.io/cxdxr2dtrew/Shin%20Chan%20GitHub%20Octocat%20Favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #050505;
+            --accent-primary: #ff3b30;
+            --accent-hover: #e02a20;
+            --text-primary: #ffffff;
+            --text-secondary: #aaaaaa;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Utility Classes */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            text-decoration: none;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 59, 48, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.7) 50%, rgba(5,5,5,0.95) 100%),
+                        url('https://ik.imagekit.io/cxdxr2dtrew/703756187680128.jpg') center/cover no-repeat;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--bg-base), transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInRight 0.8s ease forwards;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent-primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+
+        .hero-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: fadeInLeft 0.8s ease forwards;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            padding: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .hero-poster {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: var(--radius-md);
+            padding: 0.5rem;
+        }
+
+        /* Notice Banner */
+        .notice-banner {
+            background: rgba(40, 167, 69, 0.15);
+            border: 1px solid #28a745;
+            border-radius: var(--radius-md);
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            font-weight: 500;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+
+        .notice-icon {
+            color: #28a745;
+            flex-shrink: 0;
+        }
+
+        /* Player Section */
+        .player-container {
+            max-width: 1200px;
+            margin: -3rem auto 6rem;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* TV BROWSER FIX APPLIED HERE */
+        .player-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Forces 16:9 ratio on old TV browsers */
+            height: 0;
+            background: #000;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--glass-border);
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .episode-meta h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .episode-meta p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-title {
+                font-size: 3rem;
+            }
+            .hero-desc {
+                margin: 0 auto 2.5rem;
+            }
+            .hero-info {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .hero-poster {
+                height: 250px;
+            }
+            .player-controls {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding-top: 6rem;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="badge">Movie Event</div>
+                <h1 class="hero-title">Shin Chan Movie:<br>The Hotspring Battle</h1>
+                <p class="hero-desc">The Nohara family gets caught up in a top-secret mission to protect a magical, legendary hot spring from the evil Yuzame organization. Get ready for an epic, hilarious adventure!</p>
+                <button class="btn" onclick="scrollToPlayer()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Watch Movie
+                </button>
+            </div>
+            
+            <div class="hero-info">
+                <div class="glass info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Type</span>
+                        <span class="info-value">Feature Film</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Language</span>
+                        <span class="info-value">Hindi</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Quality</span>
+                        <span class="info-value">HD</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Status</span>
+                        <span class="info-value">Full Movie</span>
+                    </div>
+                </div>
+                <div class="glass" style="padding: 0;">
+                    <!-- Movie Poster Image -->
+                    <img src="https://ik.imagekit.io/cxdxr2dtrew/703756187680128.jpg" alt="Shin Chan The Hotspring Battle Poster" class="hero-poster">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Player Section -->
+    <section id="watch" class="player-container">
+        
+        <div class="notice-banner">
+            <svg class="notice-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <div><strong>Now Playing:</strong> Shin Chan Movie - The Hotspring Battle (Full Hindi Dub)</div>
+        </div>
+
+        <div class="player-wrapper">
+            <!-- Converted to /e/ embed link -->
+            <iframe 
+                id="videoPlayer" 
+                src="https://streamtape.com/e/2OgzZGrG86tRMg/"
+                allowfullscreen 
+                allowtransparency 
+                allow="autoplay" 
+                scrolling="no" 
+                frameborder="0">
+            </iframe>
+        </div>
+        
+        <div class="glass player-controls">
+            <div class="episode-meta">
+                <h2>Shin Chan: The Hotspring Battle</h2>
+                <p>Feature Film • Hindi Dubbed • HD</p>
+            </div>
+            <!-- Removed the next/prev buttons since it's a single movie -->
+            <div>
+                <span class="badge" style="margin-bottom: 0;">Enjoy the Show!</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function scrollToPlayer() {
+            document.getElementById('watch').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // Simplified init for a single movie page
+        window.onload = function() {
+            console.log("Movie player loaded.");
+        };
+    </script>
+</body>
+</html>
