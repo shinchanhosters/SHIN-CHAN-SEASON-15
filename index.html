@@ -6,10 +6,10 @@
     <title>Shin Chan Season 15 - Hindi HD</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Standard Favicon -->
-<link rel="icon" type="image/png" href="https://ik.imagekit.io/cxdxr2dtrew/Shin%20Chan%20GitHub%20Octocat%20Favicon.png">
-
-<!-- Apple Touch Icon (For iOS Home Screen) -->
-<link rel="apple-touch-icon" href="https://ik.imagekit.io/cxdxr2dtrew/Shin%20Chan%20GitHub%20Octocat%20Favicon.png">
+    <link rel="icon" type="image/png" href="https://ik.imagekit.io/cxdxr2dtrew/Shin%20Chan%20GitHub%20Octocat%20Favicon.png">
+    <!-- Apple Touch Icon (For iOS Home Screen) -->
+    <link rel="apple-touch-icon" href="https://ik.imagekit.io/cxdxr2dtrew/Shin%20Chan%20GitHub%20Octocat%20Favicon.png">
+    
     <style>
         :root {
             --bg-color: #050505;
@@ -336,6 +336,49 @@
             box-shadow: 0 4px 15px rgba(255, 59, 48, 0.4);
         }
 
+        /* Related Links & Movies Section */
+        .links-section {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .link-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 1.25rem;
+            border-radius: var(--radius-main);
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .link-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .link-card svg {
+            color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .link-card:hover svg {
+            transform: translateX(4px);
+        }
+
         /* Keyboard Shortcuts Legend */
         .shortcuts-legend {
             text-align: center;
@@ -471,6 +514,16 @@
         </div>
     </section>
 
+    <!-- Related Links & Movies Section -->
+    <section class="links-section">
+        <div class="episodes-header">
+            <h2>More Seasons & Specials</h2>
+        </div>
+        <div class="links-grid" id="linksGrid">
+            <!-- Links injected via JS -->
+        </div>
+    </section>
+
     <div class="shortcuts-legend">
         Keyboard Shortcuts: <strong>Space</strong> (Play/Pause) • <strong>←</strong> (Previous Ep) • <strong>→</strong> (Next Ep)
     </div>
@@ -491,12 +544,25 @@
             });
         }
 
+        // External/Related Links Data
+        const relatedLinks = [
+            { title: "Shin Chan Season Main Page", url: "https://shinchanhosters.github.io/SHIN-CHAN-SEASON-15/shinchanseason.html" },
+            { title: "Shin Chan Movie 4", url: "https://shinchanhosters.github.io/SHIN-CHAN-SEASON-15/4" },
+            { title: "Shin Chan Movie 7", url: "https://shinchanhosters.github.io/SHIN-CHAN-SEASON-15/7" },
+            { title: "Shin Chan Movie 12", url: "https://shinchanhosters.github.io/SHIN-CHAN-SEASON-15/12" },
+            { title: "Shin Chan Movie 13", url: "https://shinchanhosters.github.io/SHIN-CHAN-SEASON-15/13" },
+            { title: "Shin Chan Season 8", url: "https://shinchanhosters.github.io/SHIN-CHAN-SEASON-15/season08" },
+            { title: "Shin Chan Horror Specials", url: "https://shinchanhosters.github.io/SHIN-CHAN-SEASON-15/horror" },
+            { title: "Shin Chan Dark Tama Tama", url: "https://shinchanhosters.github.io/SHIN-CHAN-SEASON-15/dm8" }
+        ];
+
         // Global Variables
         let currentIndex = 0;
         const totalEpisodes = eps.length;
         
         // DOM Elements
         const gridContainer = document.getElementById('episodesGrid');
+        const linksContainer = document.getElementById('linksGrid');
         const videoPlayer = document.getElementById('videoPlayer');
         const playerTitle = document.getElementById('playerTitle');
         const episodeCounter = document.getElementById('episodeCounter');
@@ -508,6 +574,7 @@
         // Initialize UI
         function init() {
             renderGrid(eps);
+            renderLinks();
             
             // Check continue watching
             const savedIndex = localStorage.getItem('shinchan_s15_current_ep');
@@ -532,6 +599,26 @@
                 gridContainer.appendChild(btn);
             });
             updateActiveButton();
+        }
+
+        // Render Related Links Cards
+        function renderLinks() {
+            linksContainer.innerHTML = '';
+            relatedLinks.forEach(link => {
+                const a = document.createElement('a');
+                a.className = 'link-card';
+                a.href = link.url;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.innerHTML = `
+                    <span>${link.title}</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                `;
+                linksContainer.appendChild(a);
+            });
         }
 
         // Load and Play Episode
